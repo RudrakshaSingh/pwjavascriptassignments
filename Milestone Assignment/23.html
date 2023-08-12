@@ -1,0 +1,35 @@
+<!-- 23. Change the color on click
+Create a button that utilizes an array of colors and the Math.random method to change the background color
+of the page upon clicking. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Background Color</title>
+  <style>
+    body {
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">Change Color</button>
+
+  <script>
+    const colorButton = document.getElementById("btn");
+    const randomcolor=()=>{
+        let val="0123456789ABCDEF"
+        let cons="#"
+        for (let i = 0; i < 6; i++) {
+            cons=cons+val[Math.floor(Math.random()*16)]
+            
+        }
+        return cons
+    }
+    function changeran() {
+        document.body.style.backgroundColor = randomcolor();
+    }
+    
+    btn.addEventListener("click", changeran);
+  </script>
+</body>
+</html>

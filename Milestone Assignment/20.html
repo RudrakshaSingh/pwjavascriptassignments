@@ -1,0 +1,38 @@
+<!-- 20. Dynamically Adding List Items to an Ordered List
+Visit page and look for “What you'll learn” section.
+The section consists of a list of information on what you will be learning in the course. You are required to write
+a JavaScript program that stores a pre-existing array of list items. On each button click, the program should
+add a new list item in sequential order. The program should verify if any remaining items are available in the list
+item array and add the next item to the list accordingly. If no items are left, the function should display a
+message indicating that all items have been added. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add List Items on Button Click</title>
+</head>
+<body>
+  <h2>What you'll learn:</h2>
+  <ul id="listItems"></ul>
+  <button id="addButton">Add Item</button>
+
+  <script>
+    const listItems = ["HTML", "CSS", "JavaScript", "Web Development", "React"];
+
+    const addButton = document.getElementById("addButton");
+    const list = document.getElementById("listItems");
+    let index = 0;
+
+    addButton.addEventListener("click", function() {
+      if (index < listItems.length) {
+        const listItem = document.createElement("li");
+        listItem.textContent = listItems[index];
+        list.appendChild(listItem);
+        index++;
+      } else {
+        addButton.disabled = true;
+        addButton.textContent = "All items added";
+      }
+    });
+  </script>
+</body>
+</html>

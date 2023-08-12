@@ -1,0 +1,36 @@
+<!-- 21. TODO App
+Create a simple to-do app to add TODO items to the list through an input field and a button. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple To-Do App</title>
+</head>
+<body>
+  <h2>My To-Do List</h2>
+  <input type="text" id="todoInput" placeholder="Enter a TODO item">
+  <button id="addButton">Add</button>
+  <ul id="todoList"></ul>
+
+  <script>
+    const todoInput = document.getElementById("todoInput");
+    const addButton = document.getElementById("addButton");
+    const todoList = document.getElementById("todoList");
+
+    addButton.addEventListener("click", function() {
+      const todoText = todoInput.value;
+      if (todoText.trim() !== "") {
+        const listItem = document.createElement("li");
+        listItem.textContent = todoText;
+        todoList.appendChild(listItem);
+        todoInput.value = "";
+      }
+    });
+
+    todoInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        addButton.click();
+      }
+    });
+  </script>
+</body>
+</html>
